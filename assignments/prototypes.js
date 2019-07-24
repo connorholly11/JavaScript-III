@@ -17,9 +17,9 @@
 */
 
 function GameObject(attr){
-  this.newcreatedAt = attr.createdAt,
-  this.newname = attr.name,
-  this.newdimensions = attr.dimensions;
+  this.createdAt = attr.createdAt,
+  this.name = attr.name,
+  this.dimensions = attr.dimensions;
 }
 
 //prototype
@@ -29,7 +29,7 @@ GameObject.prototype.dimensions = function (length, width, height){
 }
 
 GameObject.prototype.destroy = function(){
-  return `${this.newname} was removed from the game`
+  return `${this.name} was removed from the game`
 }
 
 
@@ -43,14 +43,14 @@ GameObject.prototype.destroy = function(){
 
 function CharacterStats(attr){
   GameObject.call(this, attr);
-  this.newhealthPoints = attr.healthPoints;
+  this.healthPoints = attr.healthPoints;
 }
 
 CharacterStats.prototype =  Object.create(GameObject.prototype);
 
 
 CharacterStats.prototype.takeDamage = function(){
-  return `${this.newname} took damage`
+  return `${this.name} took damage`
 };
 
 
@@ -69,16 +69,16 @@ CharacterStats.prototype.takeDamage = function(){
 
 function Humanoid(attr){
   CharacterStats.call(this, attr);
-  this.newteam = attr.team,
-  this.newweapons = attr.weapons,
-  this.newlanguage = attr.language;
+  this.team = attr.team,
+  this.weapons = attr.weapons,
+  this.language = attr.language;
 }
 
 Humanoid.prototype =  Object.create(CharacterStats.prototype);
 
 
 Humanoid.prototype.greet = function(){
-  return `${this.newname} offers a greeting in ${this.newlanguage}`
+  return `${this.name} offers a greeting in ${this.language}`
 };
 
 
